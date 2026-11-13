@@ -2,6 +2,34 @@
 
 > Frontend for the GovAssist AI platform. React + Vite + TanStack Query SPA backed by a FastAPI backend at `mrdu.avlokai.com`.
 
+## At a glance
+
+![GitHub stars](https://img.shields.io/github/stars/MokuLakshithReddy/SahayakAI?style=flat-square&label=stars)
+![GitHub forks](https://img.shields.io/github/forks/MokuLakshithReddy/SahayakAI?style=flat-square&label=forks)
+![Open issues](https://img.shields.io/github/issues/MokuLakshithReddy/SahayakAI?style=flat-square&label=open%20issues)
+![Last commit](https://img.shields.io/github/last-commit/MokuLakshithReddy/SahayakAI?style=flat-square)
+
+**Why it matters:** A government-service assistant is useful only when a person can move from a question or document to a trackable request. This frontend brings chat, document workflows, department queues, SLA status, and audit history into one interface.
+
+## Request and workflow view
+
+```mermaid
+flowchart TD
+    U["Citizen or officer"] --> UI["SahayakAI React frontend"]
+    UI --> API["FastAPI backend API"]
+    API --> C["Case and request records"]
+    API --> W["Department workflow and SLA state"]
+    API --> D["Document extraction and generation"]
+    API --> A["Append-only audit history"]
+    C --> UI
+    W --> UI
+    D --> UI
+    A --> UI
+```
+
+**Repository boundary:** This repository is the frontend. The FastAPI backend is maintained separately at [AdapaRohith/SahayakAI](https://github.com/AdapaRohith/SahayakAI); backend behavior and operational metrics should be verified there.
+
+---
 ## Architecture
 
 Every page consumes **only backend APIs** — zero hardcoded/mock data. The API client (`src/api.js`) talks to the backend at `https://mrdu.avlokai.com/api` (override with `VITE_API_URL`).
